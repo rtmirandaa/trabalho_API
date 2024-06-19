@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
+//
 const {
-    Void,
+    EnviarProdutos,
     ControleNovoUsuario,
     MostrarUsuario,
     ControleAdicionarProduto,
@@ -9,7 +11,8 @@ const {
     ControleAtualizarProduto,
     PedidoProduto,
     MostrarCarrinho
-} = require("./controles");
+}
+ = require("./controles");
 const {
     MiddlewareNovoUsuario,
     MiddlewareId,
@@ -18,9 +21,8 @@ const {
     MiddlewareCarrinho
 } = require("./intermediarios");
 
-// Rotas
 router.get('/', Void);
-router.get('/produtos', MostrarProdutos);
-router.post('/usuario', MostrarUsuarios);
+router.get('/produtos', EnviarProdutos);
+router.post('/usuario', MostrarUsuario);
 
 module.exports = {router};
