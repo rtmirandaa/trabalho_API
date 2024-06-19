@@ -9,4 +9,3 @@ app.use(express.json())
 
 app.listen(port, () => console.log('Server rodando na port ' + port));
 
-///sexo
