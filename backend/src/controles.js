@@ -35,7 +35,7 @@ const ControleNovoUsuario = async (req, res) => {
 
 const MostrarUsuario = async (req, res) => {
     try {
-        const [result] = await MostrarUsuarios();
+        const [result] = await querys.MostrarUsuario();
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erro ao receber os dados:', error);

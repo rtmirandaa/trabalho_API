@@ -36,6 +36,7 @@ const MostrarUsuarios = async () => {
     try {
         const [usuarios] = await connection.execute('SELECT * FROM usuarios');
         if (usuarios.length > 0) {
+            console.log(usuarios);
             return usuarios;
         } else {
             return { message: 'Nenhum usuario encontrado' };
