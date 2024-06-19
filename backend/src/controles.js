@@ -1,6 +1,6 @@
 const express = require('express');
 const {Request, Response} = require ("express");
-const{MostrarProdutos, NovoUsuario, MostrarUsuarios, AdicionarProduto, RemoverProduto, AtualizarProduto, CriarPedido, MostarCarrinho} = require ("./querys") 
+const querys = require ("./querys");
 const { log } = require ("console");
 
 const Void = async(req, res)=>{
@@ -98,6 +98,7 @@ const MostrarCarrinho = async (req, res) => {
     }
 };
 const todosDados = {
+    Void,
     EnviarProdutos,
     ControleNovoUsuario,
     MostrarUsuario,
