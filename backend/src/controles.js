@@ -4,11 +4,13 @@ const{MostrarProdutos, NovoUsuario, MostrarUsuarios, AdicionarProduto, RemoverPr
 const { log } = require ("console");
 
 const Void = async(req, res)=>{
-    return res.status(200).json({Aviso: "Welcome to the mato"})
+    return res.status(200).json({Aviso: "Endpoint"})
 
 }
 
-module.exports = {Void}
+module.exports = {
+    Void
+}
 
 const EnviarProdutos = async (req, res) => {
     try {

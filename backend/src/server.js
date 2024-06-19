@@ -1,5 +1,3 @@
-console.clear()
-const { ok } = require('assert');
 const app = require('./app')
 const port = 8080
 
