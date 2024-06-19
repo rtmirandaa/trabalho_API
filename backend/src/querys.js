@@ -18,10 +18,10 @@ const MostrarProdutos = async () => {
 };
 
 
-const NovoUsuario = async (nome, altura, numero, nascimento, cidade, endereco) => {
+const NovoUsuario = async (nome, altura, nascimento, cidade) => {
     try { 
         const [result] = await connection.execute(
-            'INSERT INTO usuarios (nome, altura, numero, nascimento, cidade, endereco) VALUES (?, ?, ?, ?, ?, ?)',)
+            'INSERT INTO usuarios (nome, altura, nascimento, cidade) VALUES (?, ?, ?, ?, ?, ?)',)
 
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
@@ -32,7 +32,7 @@ const NovoUsuario = async (nome, altura, numero, nascimento, cidade, endereco) =
 
 const MostrarUsuariosquery = async () => {
     try {
-        const [usuarios] = await connection.execute('SELECT * FROM clientes'); /////////////////////////////////////////mudar nome da tabela para oq vc tem colocado
+        const [usuarios] = await connection.execute('SELECT * FROM clientes');
         if (usuarios.length > 0) {
             console.log(usuarios);
             return usuarios;
