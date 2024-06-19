@@ -8,9 +8,6 @@ const Void = async(req, res)=>{
 
 }
 
-module.exports = {
-    Void
-}
 
 const EnviarProdutos = async (req, res) => {
     try {
@@ -35,7 +32,8 @@ const ControleNovoUsuario = async (req, res) => {
 
 const MostrarUsuario = async (req, res) => {
     try {
-        const [result] = await querys.MostrarUsuario();
+        const [result] = await querys.MostrarUsuariosquery();
+        console.log('Resultado:', result);
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
@@ -43,10 +41,11 @@ const MostrarUsuario = async (req, res) => {
     }
 };
 
+
 const ControleAdicionarProduto = async (req, res) => { 
     try {
         const { nome, preco, quantidade, categoria } = req.body;
-        const [result] = await AdicionarProduto(nome, preco, quantidade, categoria);
+        const [result] = await querys.AdicionarProduto(nome, preco, quantidade, categoria);
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
@@ -97,7 +96,8 @@ const MostrarCarrinho = async (req, res) => {
         return { message: 'Erro ao receber os dados' };
     }
 };
-const todosDados = {
+
+module.exports = {
     Void,
     EnviarProdutos,
     ControleNovoUsuario,
@@ -107,6 +107,5 @@ const todosDados = {
     ControleAtualizarProduto,
     PedidoProduto,
     MostrarCarrinho
-}
-module.exports = todosDados 
+} 
 

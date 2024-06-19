@@ -17,7 +17,6 @@ const MostrarProdutos = async () => {
     }
 };
 
-module.exports = { MostrarProdutos };
 
 const NovoUsuario = async (nome, altura, numero, nascimento, cidade, endereco) => {
     try { 
@@ -30,11 +29,10 @@ const NovoUsuario = async (nome, altura, numero, nascimento, cidade, endereco) =
     }
 }
 
-module.exports = { NovoUsuario };
 
-const MostrarUsuarios = async () => {
+const MostrarUsuariosquery = async () => {
     try {
-        const [usuarios] = await connection.execute('SELECT * FROM usuarios');
+        const [usuarios] = await connection.execute('SELECT * FROM clientes'); /////////////////////////////////////////mudar nome da tabela para oq vc tem colocado
         if (usuarios.length > 0) {
             console.log(usuarios);
             return usuarios;
@@ -47,7 +45,6 @@ const MostrarUsuarios = async () => {
     }
 };
 
-module.exports = { MostrarUsuarios };
 
 const AdicionarProduto = async (nome, preco, quantidade, categoria) => {
     try {
@@ -62,7 +59,6 @@ const AdicionarProduto = async (nome, preco, quantidade, categoria) => {
     }
 };
 
-module.exports = { AdicionarProduto };
 
 const RemoverProduto = async (id) => {
     try {
@@ -77,7 +73,6 @@ const RemoverProduto = async (id) => {
     }
 };
 
-module.exports = { RemoverProduto };
 
 const AtualizarProduto = async (id, nome, preco, quantidade, categoria) => {
     try {
@@ -92,7 +87,6 @@ const AtualizarProduto = async (id, nome, preco, quantidade, categoria) => {
     }
 };
 
-module.exports = { AtualizarProduto };
 
 const CriarPedido = async (id_cliente, p_produto, p_quantidade) => {
     try {
@@ -107,7 +101,6 @@ const CriarPedido = async (id_cliente, p_produto, p_quantidade) => {
     }
 };
 
-module.exports = { CriarPedido };
 
 const MostarCarrinho = async (id_cliente) => { 
     try {
@@ -121,4 +114,13 @@ const MostarCarrinho = async (id_cliente) => {
     }
 };
 
-module.exports = { MostarCarrinho };
+module.exports = {
+    MostrarProdutos,
+    NovoUsuario,
+    MostrarUsuariosquery,
+    AdicionarProduto,
+    RemoverProduto,
+    AtualizarProduto,
+    CriarPedido,
+    MostarCarrinho
+}
