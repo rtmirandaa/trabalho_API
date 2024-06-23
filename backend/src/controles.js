@@ -75,7 +75,7 @@ const ControleAtualizarProduto = async (req, res) => {
         const preco = parseFloat (req.body.preco);
         const quantidade = parseInt (req.body.quantidade);
         const categoria =parseInt( req.body.categoria);
-        const idproduto = parseInt(req.params.id); 
+        const id = parseInt(req.body.id); 
         const [result] = await querys.AtualizarProduto(idproduto, nome, preco, quantidade, categoria);
         return res.status(200).json(result);
     } catch (error) {
