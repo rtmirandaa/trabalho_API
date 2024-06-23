@@ -9,6 +9,7 @@ router.get('/', controles.Void);
 router.get('/clientes', controles.MostrarUsuario);
 router.post('/clientes', controles.ControleNovoUsuario );
 router.post('/produtos', controles.Void );
+router.put('/produtos', controles.ControleAtualizarProduto );
 
 
 module.exports = router;

@@ -22,10 +22,10 @@ const EnviarProdutos = async (req, res) => {
 const ControleNovoUsuario = async (req, res) => {
     try {
 
-        const {nome} = await req.body;
-        console.log(nome);
+        const {nome, altura, nascimento, cidade} = await req.body;
+        console.log(nome, altura, nascimento, cidade);
 
-        return res.status(200).json({message : 'req.body.nome'})
+        return res.status(200).json({message : 'Cliente criado com sucesso!'});
 
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
@@ -72,10 +72,10 @@ const ControleRemoverProduto = async (req, res) => {
 const ControleAtualizarProduto = async (req, res) => { 
     try {
         const nome = req.body.nome;
-        const preco = req.body.preco;
-        const quantidade = req.body.quantidade;
-        const categoria = req.body.categoria;
-        const idproduto = req.body.idproduto;
+        const preco = parseFloat (req.body.preco);
+        const quantidade = parseInt (req.body.quantidade);
+        const categoria =parseInt( req.body.categoria);
+        const idproduto = parseInt(req.params.id); 
         const [result] = await querys.AtualizarProduto(idproduto, nome, preco, quantidade, categoria);
         return res.status(200).json(result);
     } catch (error) {
@@ -111,6 +111,7 @@ const MostrarCarrinho = async (req, res) => {
 module.exports = {
     Void,
     MostrarUsuario,
-    ControleNovoUsuario
+    ControleNovoUsuario,
+    ControleAtualizarProduto
 } 
 
