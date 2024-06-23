@@ -8,7 +8,7 @@ const controles = require('./controles');
 
 router.get('/', controles.Void);
 router.get('/clientes', controles.MostrarUsuario);
-router.post('/produtos', controles.ControleNovoUsuario );
+router.post('/clientes', controles.ControleNovoUsuario );
 // router.post('/produtos', controles.Void );
 
 

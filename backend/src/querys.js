@@ -21,7 +21,7 @@ const MostrarProdutos = async () => {
 const NovoUsuario = async (nome, altura, nascimento, cidade) => {
     try { 
         const [result] = await connection.execute(
-            'INSERT INTO usuarios (nome, altura, nascimento, cidade) VALUES (?, ?, ?, ?, ?, ?)',)
+            'INSERT INTO clientes (nome, altura, nascimento, cidade) VALUES (?, ?, ?, ?)',[nome, altura, nascimento, cidade])
 
     } catch (error) {
         console.error('Erro ao receber os dados:', error);

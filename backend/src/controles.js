@@ -21,13 +21,10 @@ const EnviarProdutos = async (req, res) => {
 
 const ControleNovoUsuario = async (req, res) => {
     try {
-        const nome =req.body.nome ;
-        const altura = req.body.altura;
-        const nascimento = req.body.nascimento;
-        const cidade = req.body.cidade;
-        console.log(nome, altura, nascimento, cidade);
-        const [result] = await querys.NovoUsuario(nome, altura, nascimento, cidade);
-        return res.status(200).json(result);
+        const [nome] = await req.body;
+        console.log(nome);
+        const [result] = await querys.NovoUsuario(nome);
+        return res.status(200).json({message: 'Usuário criado com sucesso'});
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
         return { message: 'Erro ao receber os dados' };
