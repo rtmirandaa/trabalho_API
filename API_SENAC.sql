@@ -5,6 +5,7 @@ create table clientes (
     id int PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     idade int NOT NULL);
-insert into clientes (nome, idade) values ('rafa', 20);
+insert into clientes (nome, idade) values ('joao', 10);
+select * from api_rest.clientes;
 
-
+show DATABASES;
