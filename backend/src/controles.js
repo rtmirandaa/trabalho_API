@@ -61,7 +61,7 @@ const ControleAdicionarProduto = async (req, res) => {
 const ControleRemoverProduto = async (req, res) => { 
     try {
         const id  = req.body.id;
-        const [result] = await querys.RemoverProduto(id);
+        const result = await querys.RemoverProduto(id);
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
@@ -72,11 +72,11 @@ const ControleRemoverProduto = async (req, res) => {
 const ControleAtualizarProduto = async (req, res) => { 
     try {
         const nome = req.body.nome;
-        const preco = parseFloat (req.body.preco);
-        const quantidade = parseInt (req.body.quantidade);
-        const categoria =parseInt( req.body.categoria);
-        const id = parseInt(req.body.id); 
-        const [result] = await querys.AtualizarProduto(idproduto, nome, preco, quantidade, categoria);
+        const preco =  req.body.preco;
+        const quantidade = req.body.quantidade;
+        const categoria =req.body.categoria;
+        const id = req.body.id; 
+        const result = await querys.AtualizarProduto(id, nome, preco, quantidade, categoria);
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erro ao receber os dados:', error);
@@ -112,6 +112,7 @@ module.exports = {
     Void,
     MostrarUsuario,
     ControleNovoUsuario,
-    ControleAtualizarProduto
+    ControleAtualizarProduto,
+    ControleRemoverProduto
 } 
 

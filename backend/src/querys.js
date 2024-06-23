@@ -62,7 +62,7 @@ const AdicionarProduto = async (nome, preco, quantidade, categoria) => {
 const RemoverProduto = async (id) => {
     try {
         const [result] = await connection.execute(
-            'DELETE FROM produtos WHERE id = ?',
+            'DELETE FROM produtos WHERE id = ?;',
             [id]
         );
         return result;
@@ -76,8 +76,8 @@ const RemoverProduto = async (id) => {
 const AtualizarProduto = async (id, nome, preco, quantidade, categoria) => {
     try {
         const [result] = await connection.execute(
-            'UPDATE produtos SET nome = ?, preco = ?, quantidade = ?, categoria_id = ? WHERE id = ?',
-            [nome, preco, quantidade, categoria, id]
+            'UPDATE produtos SET nome = ?, quantidade = ? WHERE id = ?;',
+            [nome, quantidade, id]
         );
         return result;
     } catch (error) {
