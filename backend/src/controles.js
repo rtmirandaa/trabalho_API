@@ -71,12 +71,7 @@ const ControleRemoverProduto = async (req, res) => {
 
 const ControleAtualizarProduto = async (req, res) => { 
     try {
-        const nome = req.body.nome;
-        const preco = parseFloat (req.body.preco);
-        const quantidade = parseInt (req.body.quantidade);
-        const categoria =parseInt( req.body.categoria);
-        const id = parseInt(req.body.id); 
-        const [result] = await querys.AtualizarProduto(id, nome, preco, quantidade, categoria);
+        const nome =  req.body.nome;
         const preco =  req.body.preco;
         const quantidade = req.body.quantidade;
         const categoria =req.body.categoria;
