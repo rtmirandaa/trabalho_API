@@ -76,7 +76,7 @@ const ControleAtualizarProduto = async (req, res) => {
         const quantidade = parseInt (req.body.quantidade);
         const categoria =parseInt( req.body.categoria);
         const id = parseInt(req.body.id); 
-        const [result] = await querys.AtualizarProduto(idproduto, nome, preco, quantidade, categoria);
+        const [result] = await querys.AtualizarProduto(id, nome, preco, quantidade, categoria);
         return res.status(200).json(result);
     } catch (error) {
         console.error('Erro ao receber os dados:', error);

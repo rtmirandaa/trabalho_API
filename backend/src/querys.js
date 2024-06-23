@@ -75,6 +75,7 @@ const RemoverProduto = async (id) => {
 
 const AtualizarProduto = async (id, nome, preco, quantidade, categoria) => {
     try {
+        console.log(id, nome, preco, quantidade, categoria);
         const [result] = await connection.execute(
             'UPDATE produtos SET nome = ?, preco = ?, quantidade = ?, categoria_id = ? WHERE id = ?',
             [nome, preco, quantidade, categoria, id]
